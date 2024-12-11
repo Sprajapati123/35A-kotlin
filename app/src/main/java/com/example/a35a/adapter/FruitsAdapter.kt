@@ -31,7 +31,9 @@ class FruitsAdapter(
     }
 
     override fun onBindViewHolder(holder: FruitsViewHolder, position: Int) {
-
+        holder.image.setImageResource(imageList[position])
+        holder.title.text = titleList[position]
+        holder.desc.text = descList[position]
     }
 }
 
