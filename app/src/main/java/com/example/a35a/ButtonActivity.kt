@@ -1,6 +1,8 @@
 package com.example.a35a
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
@@ -11,12 +13,14 @@ import com.example.a35a.databinding.ActivityButtonBinding
 
 class ButtonActivity : AppCompatActivity() {
     lateinit var binding: ActivityButtonBinding
+    lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityButtonBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sharedPreferences = getSharedPreferences("userData",Context.MODE_PRIVATE)
 
         binding.btnNavigate.setOnClickListener {
 
@@ -29,7 +33,11 @@ class ButtonActivity : AppCompatActivity() {
                 binding.editPassword.error = "password can't be empty"
             } else {
                 if(binding.checkBox.isChecked){
+                    val editor = sharedPreferences.edit()
 
+                    editor.putString("username",username)
+                    editor.putString("password",password)
+                    editor.apply()
                 }
                 val intent = Intent(this@ButtonActivity, DestinationActivity::class.java)
 
