@@ -15,27 +15,28 @@ class ButtonActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityButtonBinding.inflate(layoutInflater)
-       setContentView(binding.root)
+        setContentView(binding.root)
 
 
         binding.btnNavigate.setOnClickListener {
 
-            val username : String = binding.editUsername.text.toString()
+            val username: String = binding.editUsername.text.toString()
             val password: String = binding.editPassword.text.toString()
 
-            if(username.isEmpty()){
+            if (username.isEmpty()) {
                 binding.editUsername.error = "username can't be empty"
-            }else if(password.isEmpty()){
+            } else if (password.isEmpty()) {
                 binding.editPassword.error = "password can't be empty"
-            }else{
-                val intent = Intent(this@ButtonActivity,DestinationActivity::class.java)
+            } else {
+                if(binding.checkBox.isChecked){
 
-                intent.putExtra("username",username)
-                intent.putExtra("password",password)
+                }
+                val intent = Intent(this@ButtonActivity, DestinationActivity::class.java)
+
+                intent.putExtra("username", username)
+                intent.putExtra("password", password)
                 startActivity(intent)
             }
-
-
 
 
         }
