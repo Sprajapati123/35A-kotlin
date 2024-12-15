@@ -29,6 +29,7 @@ class ButtonActivity : AppCompatActivity() {
                 binding.editPassword.error = "password can't be empty"
             }else{
                 val intent = Intent(this@ButtonActivity,DestinationActivity::class.java)
+
                 intent.putExtra("username",username)
                 intent.putExtra("password",password)
                 startActivity(intent)
