@@ -36,7 +36,9 @@ class SplashActivity : AppCompatActivity() {
                 finish()
             }
 
-        },2000)
+        },5000)
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

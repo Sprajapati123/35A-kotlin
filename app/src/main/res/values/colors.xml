@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#0629CA</color>
+    <color name="orange">#E87D4B</color>
     <color name="red">#CA061D</color>
     <color name="grey">#B6B1B1</color>
 </resources>
